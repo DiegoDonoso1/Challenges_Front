@@ -1,0 +1,127 @@
+/* 
+Página con demostraciones de Flex
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Fraunces', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Outfit', sans-serif;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+
+    /* centrar horizontalmente */
+    justify-content: center;
+
+    /*centrar verticalmente */
+    align-items: center;
+    background-color: hsl(30, 38%, 92%);
+}
+
+.card{
+    display: flex;
+    width: 560px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.img_container{
+    height: 100%;
+    max-height: 100%;
+    margin: 0;
+}
+
+.img_container img{
+    height: 100%;
+     /* top-left | top-right | bottom-right | bottom-left */
+     border-radius: 10px 0 0 10px;
+}
+
+.info_container{
+    background-color: hsl(0, 0%, 100%);
+    padding: 30px;
+    display: flex;
+
+    /* cambiar la direccion por defecto de colocar los contenedores uno al lado del otro */
+    flex-direction: column;
+    
+    justify-content: center;
+
+    /* agregar espacio entre los contenedores */
+    gap: 15px;
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 0 10px 10px 0;
+}
+
+.info_container span{
+    color: hsl(228, 12%, 48%);
+    letter-spacing: .3rem;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+.info_container p{
+    color: hsl(228, 12%, 48%);
+}
+
+.price{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.price h2{
+    color: hsl(158, 36%, 37%);
+}
+
+.price p{
+    font-size: 12px;
+}
+
+.button_cart{
+    background-color: hsl(158, 36%, 37%);
+    color: hsl(0, 0%, 100%);
+    padding: 12px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+/* hacer responsivo en pantallas hasta 375px */
+
+@media only screen and (max-width: 375px) {
+    .card{
+    /*  cambiar propiedad a 'column' para que el contenido 
+    no se coloque uno al lado del otro, si no hacia abajo, esto en dispositivos moviles */
+        flex-direction: column;
+        width: 320px;
+        height: auto;
+    }
+
+    .img_container img{
+        width: 100%;
+         /* top-left | top-right | bottom-right | bottom-left */
+        border-radius: 10px 10px 0 0px;
+    }
+
+    .info_container{
+        /* top-left | top-right | bottom-right | bottom-left */
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+    }
+  }
